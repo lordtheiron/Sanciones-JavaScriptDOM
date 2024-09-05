@@ -1,0 +1,13 @@
+Comando iniciar WEBPACK:
+    npm run build
+Comando iniciar BABEL:
+    npm run build-babel
+Update BABEL:
+    npm install babel-loader @babel/cli @babel/core @babel/preset-env --save-dev
+Update NODE.JS:
+    -Check the version of node.js you have installed:
+        node -v
+    -Check available versions:
+        nvm list available
+    -Install the latest version:
+        nvm install 18.14.0

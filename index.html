@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Gestión de sanciones</title>
+    <link rel="icon" type="image/x-icon" href="IMG/headImg.png">
+    <!--<link rel="icon" href="data:;base64,iVBORw0KGgo=">-->
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!--CSS-->
+    <!--JQuery-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <!--BOOTSTRAP-->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+    <!--Bootatrap_Icons-->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
+    <!--local-->
+    <link href="CSS/bootstrap/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous">
+    <!--Animate-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+    <!--mio-->
+    <link rel="stylesheet" href="CSS/sancionesCSS.css">
+</head>
+
+<body class="bg-image">
+    <!--HEADER-->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+        <div class="container-fluid">
+            <div class="container-fluid" onclick="location.reload();">
+                <a class="navbar-brand" href="#">
+                    <img src="IMG/headImg.png" alt="" width="30" height="24" class="d-inline-block align-text-top">
+                    I.E.S. Leonardo Da Vinci
+                </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="#" id="VolverInicio">Inicio</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="#" id="Instalaciones">Instalaciones</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#" id="Recursos">Recursos</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#" id="OfEducativa">Oferta Educativa</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#" id="MenuSanciones">Gestionar sanciones</a>
+                    </li>
+                    <li class="nav-item dropdown" F>
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                            aria-expanded="false" id="menuUs">
+                            Gestión Alumnos
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" id="menAmon">Poner una amonestación</a></li>
+                            <li><a class="dropdown-item" id="menExp">Expulsión de clase</a></li>
+                            <li><a class="dropdown-item" id="menFir">Control de firmas</a></li>
+                            <li><a class="dropdown-item" id="menCor">Aplicar medidas correctoras</a></li>
+                            <li><a class="dropdown-item" id="menList">Listados</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                            aria-expanded="false" id="nombreUs">
+                            Usuario
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="#" id="Editar">Editar</a></li>
+                            <li>
+                                <hr class="dropdown-divider">
+                            </li>
+                            <li><a class="dropdown-item" id="Salir">Salir</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <!--EJERCICIO-->
+    <article class="contenedor container d-flex flex-row justify-content-center" id="contenedor">
+        <img src="IMG/inicio_IES.png">
+    </article>
+    <!--MODAL-->
+    <!--Button trigger modal
+    <button type="button" id="btnPruebasModal" class="btn btn-primary" data-bs-toggle="modal"
+        data-bs-target="#staticBackdrop">
+        Launch static backdrop modal
+    </button>-->
+    <!-- Modal -->
+    <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+        aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content rounded-4">
+                <div class="modal-header" id="modal-header">
+                    <h1 class="modal-title fs-5" id="staticBackdropLabel">Modal title</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body" id="mensaje">
+                    ...
+                </div>
+                <div class="modal-footer" id="modal-footer">
+                    <!--<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>-->
+                    <button type="button" class="btn btn-success" data-bs-dismiss="modal"
+                        id="btnModalContinuar">Entendido</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Cookies-->
+    <div class="cookie-consent-banner" id="bannerCookies" style="display: none;">
+        <div class="cookie-consent-banner__inner">
+            <div class="cookie-consent-banner__copy">
+                <div class="cookie-consent-banner__header">ESTA PÁGINA USA COOKIES</div>
+                <div class="cookie-consent-banner__description">Utilizamos cookies para personalizar el contenido y los
+                    anuncios, para proporcionar funciones de redes sociales y analizar nuestro tráfico. También
+                    compartimos información sobre su uso de nuestro sitio con nuestros socios de redes sociales,
+                    publicidad y análisis que pueden combinarlo con otros información que les ha proporcionado o que han
+                    recopilado a partir de su uso de sus servicios. Usted acepta nuestras cookies si continúa utilizando
+                    nuestro sitio web.
+                </div>
+            </div>
+            <div class="cookie-consent-banner__actions">
+                <a href="#" id="aceptaCookie" class="cookie-consent-banner__cta">
+                    OK
+                </a>
+                <a href="#" id="rechazaCookie" class="cookie-consent-banner__cta cookie-consent-banner__cta--secondary">
+                    Decline
+                </a>
+            </div>
+        </div>
+    </div>
+    </div>
+    <!--JS-->
+    <!--BOOTSTRAP-->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
+        crossorigin="anonymous"></script>
+    <!--BOOTSTRAP/POPPER(POR SEPARADO)-->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
+        integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.min.js"
+        integrity="sha384-cuYeSxntonz0PPNlHhBs68uyIAVpIIOZZ5JqeqvYYIcEL727kskC66kF92t6Xl2V"
+        crossorigin="anonymous"></script>
+    <!--local-->
+    <script src="assets/jquery/jquery-3.6.1.min.js"></script>
+    <!--<script src="JS/bootstrap/popper.min.js"></script>-->
+    <script src="assets/bootstrap/bootstrap.min.js"></script>
+    <!--mio-->
+    <!--<--Normal-->
+    <!--<script src="assets/main.js" type="module" defer></script>-->
+    <!--<--Con WEBPACK-->
+    <!--<script src="JS/bundle.js" type="module" defer></script>-->
+    <!--<--Con minify-->
+    <script src="JS/bundle.min.js" type="module" defer></script>
+    <!--Librerias PDFMake-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.2.7/pdfmake.min.js"
+        integrity="sha512-a9NgEEK7tsCvABL7KqtUTQjl69z7091EVPpw5KxPlZ93T141ffe1woLtbXTX+r2/8TtTvRX/v4zTL2UlMUPgwg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.2.7/vfs_fonts.min.js"
+        integrity="sha512-P0bOMePRS378NwmPDVPU455C/TuxDS+8QwJozdc7PGgN8kLqR4ems0U/3DeJkmiE31749vYWHvBOtR+37qDCZQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+</body>
+<footer class="bg-dark text-center text-lg-start fixed-bottom text-light">
+    <!-- Copyright -->
+    <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
+        © 2022 Copyright:
+        <a class="text-primary" href="mailto:tobarra1992@gmail.com">Toby</a>
+    </div>
+    <!-- Copyright -->
+</footer>
+
+</html>
